@@ -1,0 +1,57 @@
+{
+  "name": "@kelpjs/build",
+  "version": "0.0.9",
+  "description": "build tools for kelp",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "bin": {
+    "kbuild": "./bin/build.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lsong",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/song940/kelp-build.git"
+  },
+  "keywords": [
+    "kelp",
+    "webpack",
+    "build"
+  ],
+  "bugs": {
+    "url": "https://github.com/song940/kelp-build/issues"
+  },
+  "homepage": "https://github.com/song940/kelp-build#readme",
+  "dependencies": {
+    "@babel/core": "7",
+    "@babel/plugin-proposal-class-properties": "7",
+    "@babel/plugin-proposal-decorators": "7",
+    "@babel/plugin-syntax-dynamic-import": "7",
+    "@babel/preset-env": "7",
+    "@babel/preset-react": "7",
+    "babel-loader": "8",
+    "babel-plugin-import": "^1.12.0",
+    "css-loader": "^2.1.1",
+    "file-loader": "^5.0.2",
+    "glob": "^7.1.4",
+    "happypack": "^5.0.1",
+    "kelp-argv": "^0.0.3",
+    "mini-css-extract-plugin": "^0.7.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-pxtorem": "^5.1.1",
+    "precss": "4",
+    "resolve-url-loader": "^3.1.1",
+    "style-loader": "^1.1.3",
+    "ts-loader": "^6.2.2",
+    "url-loader": "^3.0.0",
+    "vue-loader": "^15.7.0",
+    "webpack": "4",
+    "webpack-bundle-analyzer": "^3.3.2"
+  },
+  "devDependencies": {}
+}
