@@ -1,32 +1,27 @@
 const fs = require('fs');
-const glob = require('glob');
+const { join } = require('path');
+const getPages = require('./pages');
 
-const getName = (filename, dir = '') =>
-  filename
-    .replace(new RegExp(`^${dir}/`), '')
-    .replace(/\/index\..*$/, '') // trim index.*$
-    .replace(/\..*$/, '')        // trim .ext$
+const root = process.cwd();
 
-const filesToEntry = (dir, files) =>
-  files.reduce((pages, filename) => {
-    const name = getName(filename, dir);
-    pages[name] = filename;
-    return pages;
-  }, {});
-
-const getFiles = (dir = '.') => {
-  const files = glob.sync(`${dir}/**/*.@(jsx?|vue)`);
-  return filesToEntry(dir, files);
+const getEntryFromPkg = () => {
+  const filename = join(root, 'package.json');
+  const pkg = require(filename);
+  return pkg.entry || pkg.source;
 };
 
-module.exports = (src = './src/pages') => {
-  if (typeof src === 'string') {
-    const stat = fs.statSync(src);
+const getDefaultEntry = () => {
+  return getEntryFromPkg() || './src/index.js';
+};
+
+module.exports = (entry = getDefaultEntry()) => {
+  if (typeof entry === 'string') {
+    const stat = fs.statSync(entry);
     if (stat.isDirectory()) {
-      src = getFiles(src);
+      entry = getPages(entry);
     } else {
-      src = filesToEntry(src, [src]);
+      entry = join(root, entry);
     }
   }
-  return webpackConfig => webpackConfig.entry = src;
+  return webpackConfig => webpackConfig.entry = entry;
 };

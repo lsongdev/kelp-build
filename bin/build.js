@@ -9,7 +9,7 @@ var config = {};
 try {
   // kelp-build.config.js
   const root = process.cwd();
-  config = require(`${root}/kbuild`);
+  config = require(`${root}/kbuild.config`);
 } catch (e) {
   if (e.code !== 'MODULE_NOT_FOUND') throw e;
 }

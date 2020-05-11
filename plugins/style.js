@@ -14,16 +14,16 @@ const resolveUrlLoader =
   require.resolve('resolve-url-loader');
 
 module.exports = ({
-  plugins = [
-    postcss(),
-    pxtorem({
-      rootValue: 100,
-      propList: ['font-size', 'padding*', 'margin*', 'width', 'height']
-    }),
-  ],
+  px2rem = 100,
+  plugins = [postcss()],
   extract = `css/[name].css`,
-  ...options
-} = {}) => {
+  ...options } = {}) => {
+
+  px2rem && plugins.push(pxtorem({
+    rootValue: px2rem,
+    propList: ['font-size', 'padding*', 'margin*', 'width', 'height']
+  }));
+
   const postcssLoader = {
     loader: require.resolve('postcss-loader'),
     options: Object.assign({
