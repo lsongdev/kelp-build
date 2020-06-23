@@ -20,7 +20,7 @@ module.exports = (config = {}, callback) => {
     alias(config.alias),
     watch(config.watch),
     output(config.output),
-    config.report && analyzer(config.report),
+    config.report && analyzer(),
     config.typescript && typescript(config.typescript),
   ].concat(config.plugins), callback);
 };

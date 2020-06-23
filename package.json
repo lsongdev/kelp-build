@@ -1,6 +1,6 @@
 {
   "name": "@kelpjs/build",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "build tools for kelp",
   "main": "index.js",
   "directories": {
