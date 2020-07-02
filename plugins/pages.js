@@ -18,4 +18,5 @@ const getPages = (dir = '.') => {
   return filesToEntry(dir, files);
 };
 
-module.exports = getPages;
+module.exports = dir => 
+  webpackConfig => webpackConfig.entry = getPages(dir);

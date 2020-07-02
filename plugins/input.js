@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { join } = require('path');
-const getPages = require('./pages');
+const pages = require('./pages');
 
 const root = process.cwd();
 
@@ -17,11 +17,8 @@ const getDefaultEntry = () => {
 module.exports = (entry = getDefaultEntry()) => {
   if (typeof entry === 'string') {
     const stat = fs.statSync(entry);
-    if (stat.isDirectory()) {
-      entry = getPages(entry);
-    } else {
-      entry = join(root, entry);
-    }
+    if (stat.isDirectory()) return pages(dir);
+    entry = join(root, entry);
   }
   return webpackConfig => webpackConfig.entry = entry;
 };
