@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "lib": [
+        "es2015",
+        "es2016",
+        "ES5",
+        "ES6",
+        "dom",
+      ],
+      "jsx": "react",
+      "target": "es5",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "moduleResolution": "Node"
+    }
+  }
