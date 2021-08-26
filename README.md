@@ -3,7 +3,7 @@
 ### install
 
 ```bash
-~$ npm i -g kelp-build
+~$ npm i -g @kelpjs/build
 ```
 
 ### configurage
