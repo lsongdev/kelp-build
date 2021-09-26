@@ -12,19 +12,12 @@ const babelDecorators = [
     legacy: true
   }];
 
-const classProperties = [
-  '@babel/plugin-proposal-class-properties', {
-    loose: true
-  }
-];
-
 const objectRestSpread =
   '@babel/plugin-proposal-object-rest-spread'
 
 
 const importPlugin = [
-  'babel-plugin-import',
-  {
+  'babel-plugin-import', {
     style: "css",
     libraryName: "antd"
   }
@@ -35,13 +28,20 @@ const resolvePlugin = plugin =>
     ? (plugin[0] = require.resolve(plugin[0]), plugin)
     : require.resolve(plugin);
 
-module.exports = ({ presets = [], plugins = [] } = {}) => {
+module.exports = ({ presets = [], plugins = [], loose = true } = {}) => {
+
+  // fix loose options
+  // https://github.com/rails/webpacker/issues/3008
+  const babelEnv = [
+    '@babel/preset-env', { loose }
+  ];
+  const classProperties = [
+    '@babel/plugin-proposal-class-properties', { loose }
+  ];
   const babel = {
     loader: babelLoader,
     options: {
-      presets: [
-        '@babel/preset-env',
-      ]
+      presets: [babelEnv]
         .map(resolvePlugin)
         .concat(presets),
       plugins: [
