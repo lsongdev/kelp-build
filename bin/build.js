@@ -20,5 +20,5 @@ build(Object.assign(config, argv()), (err, stats) => {
   compilation && compilation.errors.forEach(e => {
     console.error(`[${pkg.name}]`, e.message);
   });
-  console.log('[kelp-build] Javascript compile success, cost %sms', endTime - startTime);
+  console.log(`[${pkg.name}] build success, cost %sms`, endTime - startTime);
 });

@@ -9,9 +9,9 @@ const build = (plugins, callback) => {
     }
   }
   if (!webpackConfig.entry)
-    return console.error('[kelp-build] webpack require "entry" field');
+    return console.error('[@kelpjs/build] webpack require "entry" field');
   if (Object.keys(webpackConfig.entry).length === 0)
-    return console.error('[kelp-build] webpack will do nothing');
+    return console.error('[@kelpjs/build] webpack will do nothing');
   return webpack(webpackConfig, callback);
 }
 

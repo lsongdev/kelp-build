@@ -26,9 +26,12 @@ module.exports = ({
 
   const postcssLoader = {
     loader: require.resolve('postcss-loader'),
-    options: Object.assign({
-      plugins: () => plugins
-    }, options)
+    options: {
+      postcssOptions: { 
+        // parser,
+        plugins, 
+      }
+    }
   };
   const cssConfig = {
     test: /\.css$/,

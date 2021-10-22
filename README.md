@@ -37,7 +37,7 @@ module.exports = {
 
 Happy[1]: Version: 5.0.1. Threads: 8
 Happy[1]: All set; signaling webpack to proceed.
-[kelp-build] Javascript compile success, cost 3351ms
+[@kelpjs/build] Javascript compile success, cost 3351ms
 ```
 
 ### license

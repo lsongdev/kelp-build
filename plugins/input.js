@@ -5,9 +5,14 @@ const pages = require('./pages');
 const root = process.cwd();
 
 const getEntryFromPkg = () => {
-  const filename = join(root, 'package.json');
-  const pkg = require(filename);
-  return pkg.entry || pkg.source;
+  try {
+    const filename = join(root, 'package.json');
+    const pkg = require(filename);
+    return pkg.entry || pkg.source;
+  } catch (e) {
+    if (e.code !== 'MODULE_NOT_FOUND')
+      throw e;
+  }
 };
 
 const getDefaultEntry = () => {
