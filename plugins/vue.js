@@ -1,6 +1,6 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = options => {
+  const { VueLoaderPlugin } = require('vue-loader')
   // vue supports
   return webpackConfig => {
     webpackConfig.module.rules.push({

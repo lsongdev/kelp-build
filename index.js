@@ -12,7 +12,6 @@ const typescript = require('./plugins/typescript');
 
 module.exports = (config = {}, callback) => {
   return build([
-    vue(),
     image(),
     input(config.input),
     react(config.react),
@@ -21,6 +20,7 @@ module.exports = (config = {}, callback) => {
     watch(config.watch),
     output(config.output),
     config.report && analyzer(),
+    config.vue && vue(config.vue),
     config.typescript && typescript(config.typescript),
   ].concat(config.plugins), callback);
 };

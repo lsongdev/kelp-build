@@ -1,6 +1,6 @@
 {
   "name": "@kelpjs/build",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "build tools for kelp",
   "main": "index.js",
   "directories": {
@@ -45,14 +45,17 @@
     "postcss": "8",
     "postcss-loader": "*",
     "postcss-pxtorem": "*",
-    "precss": "4",
     "resolve-url-loader": "*",
     "style-loader": "*",
     "ts-loader": "*",
     "url-loader": "*",
     "vue-loader": "*",
+    "vue-template-compiler": "^2.7.10",
     "webpack": "5",
     "webpack-bundle-analyzer": "*"
+  },
+  "optionalDependencies": {
+    "typescript": "*"
   },
   "devDependencies": {}
 }

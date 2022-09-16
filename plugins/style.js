@@ -1,4 +1,3 @@
-const postcss = require('precss');
 const pxtorem = require('postcss-pxtorem');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -15,9 +14,9 @@ const resolveUrlLoader =
 
 module.exports = ({
   px2rem = 100,
-  plugins = [postcss()],
-  extract = `css/[name].css`,
-  ...options } = {}) => {
+  plugins = [],
+  extract = `css/[name].css`
+} = {}) => {
 
   px2rem && plugins.push(pxtorem({
     rootValue: px2rem,
@@ -27,9 +26,9 @@ module.exports = ({
   const postcssLoader = {
     loader: require.resolve('postcss-loader'),
     options: {
-      postcssOptions: { 
+      postcssOptions: {
         // parser,
-        plugins, 
+        plugins,
       }
     }
   };
